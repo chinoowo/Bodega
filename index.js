@@ -1,5 +1,7 @@
 let productos = [];
+const url1 = "https://musicpro.bemtorres.win/api/v1/test/saludo";
 const url = "http://localhost:8080/api/v1/products";
+const url2 = "https://musicpro.bemtorres.win/api/v1/test/saldo";
 const options = {
     headers: {
         'Accept': 'application/json'
@@ -115,8 +117,39 @@ function ActualizarProducto() {
             "Content-type": 'application/json; charset=UTF-8'
         }
     }).then((res) => { getProducts() })
-};
+}
 
+
+function apiConsumo() {
+    let message = '';
+    fetch(url1)
+    .then(data => {
+        return data.json();
+    })
+    .then(resp => {
+        console.log(resp.message);
+        message = resp.message;
+    });
+}
+
+function apiConsumo2() {
+    let message = '';
+    let saldo = '';
+    fetch(url2)
+    .then(data => {
+        return data.json();
+    })
+    .then(resp => {
+        console.log(resp.message);
+        message = resp.message;
+
+        console.log(resp.saldo);
+        saldo = resp.saldo;
+        
+        document.getElementById("saldo").value = saldo;
+
+    });
+}
 
 
 
