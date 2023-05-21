@@ -80,18 +80,18 @@ function guardarProducto() {
         stock: document.getElementById("stockP").value
     };
     let productId = document.getElementById("ProductId").value
-    fetch(url + "/" + productId,{
+    fetch(url + "/" + productId, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
             "Content-type": 'application/json; charset=UTF-8'
         }
-    }).then((res) => { getProducts() }).then(()=>console.log("Producto repetido")) /* .catch((error)=>console.log("Producto repetido")) */
+    }).then((res) => { getProducts() }).then(() => console.log("Producto repetido")) /* .catch((error)=>console.log("Producto repetido")) */
 }
 
 
 
-function popularDatosid(productId,productName,productType,productCode,stock) {
+function popularDatosid(productId, productName, productType, productCode, stock) {
 
     document.getElementById('ProductId').value = productId;
     document.getElementById('nombreP').value = productName;
@@ -123,32 +123,35 @@ function ActualizarProducto() {
 function apiConsumo() {
     let message = '';
     fetch(url1)
-    .then(data => {
-        return data.json();
-    })
-    .then(resp => {
-        console.log(resp.message);
-        message = resp.message;
-    });
+        .then(data => {
+            return data.json();
+        })
+        .then(resp => {
+            console.log(resp.message);
+            message = resp.message;
+
+
+
+        });
 }
 
 function apiConsumo2() {
     let message = '';
     let saldo = '';
     fetch(url2)
-    .then(data => {
-        return data.json();
-    })
-    .then(resp => {
-        console.log(resp.message);
-        message = resp.message;
+        .then(data => {
+            return data.json();
+        })
+        .then(resp => {
+            console.log(resp.message);
+            message = resp.message;
 
-        console.log(resp.saldo);
-        saldo = resp.saldo;
-        
-        document.getElementById("saldo").value = saldo;
+            console.log(resp.saldo);
+            saldo = resp.saldo;
 
-    });
+            document.getElementById("saldo").value = saldo;
+
+        });
 }
 
 

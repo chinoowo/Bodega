@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <!-- Agrega los enlaces a los archivos CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: rgb(161, 144, 161);">
+    <div class="container">
+        <h1>Iniciar sesión</h1>
+        <h6>Gestion de bodega MusicPro</h6>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <a href="index.html"><button type="submit" class="btn btn-primary" >Iniciar sesión</button></a>
+        </form>
+    </div>
+
+    <!-- Agrega el enlace al archivo JavaScript de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Validación del formulario utilizando jQuery
+        $(document).ready(function () {
+            $('#loginForm').submit(function (event) {
+                event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+                var email = $('#email').val();
+                var password = $('#password').val();
+
+                // Aquí puedes agregar la lógica de validación personalizada
+                // Por ejemplo, verificar si el correo electrónico y la contraseña son válidos
+                // Si la validación es exitosa, puedes redirigir al usuario a otra página
+                // o mostrar un mensaje de éxito.
+
+                // Ejemplo de validación básica
+                if (email === 'bodega@musicpro.cl' && password === '123456') {
+                    alert('Inicio de sesión exitoso');
+                    // Redirigir al usuario a otra página
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Correo electrónico o contraseña incorrectos');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
